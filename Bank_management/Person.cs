@@ -12,6 +12,8 @@ namespace Bank_management
         public string Email { get; set; }
         public int Phone { get; set; }
 
+    
+
         public Person(string name,string email,int phone)
         {
             this.Name = name;
