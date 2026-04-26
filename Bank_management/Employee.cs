@@ -32,7 +32,7 @@ namespace Bank_management
 
         }
 
-        public Employee(string name,string email,string position,int phone,double salary,int branchId) : base(name, email, phone)
+        public Employee(string name,string email,string position,int phone,double salary,string address,int branchId) : base(name, email,address,phone)
         {
             this.Position = position;
             this.Salary = salary;

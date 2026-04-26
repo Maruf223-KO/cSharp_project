@@ -8,17 +8,23 @@ namespace Bank_management
 {
     class Person
     {
+
+        public int Userid { get; set; }
         public string Name { get; set; }
+
+        public string Phone { get; set; }
         public string Email { get; set; }
-        public int Phone { get; set; }
 
-    
+        public string Address { get; set; }
 
-        public Person(string name,string email,int phone)
+        public Person(int userid,string name,string phone, string email,string address)
         {
+            this.Userid = userid;
             this.Name = name;
-            this.Email = email;
             this.Phone = phone;
+            this.Email = email;
+            this.Address = address;
+            
         }
 
     }
