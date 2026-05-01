@@ -46,6 +46,8 @@ namespace Bank_management
             this.label_Title = new System.Windows.Forms.Label();
             this.btn_Submit = new System.Windows.Forms.Button();
             this.btn_Clear = new System.Windows.Forms.Button();
+            this.label_userId = new System.Windows.Forms.Label();
+            this.txt_userId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // customerId
@@ -64,7 +66,6 @@ namespace Bank_management
             this.txt_CustomerId.Location = new System.Drawing.Point(163, 149);
             this.txt_CustomerId.Multiline = true;
             this.txt_CustomerId.Name = "txt_CustomerId";
-            this.txt_CustomerId.ReadOnly = true;
             this.txt_CustomerId.Size = new System.Drawing.Size(149, 24);
             this.txt_CustomerId.TabIndex = 1;
             // 
@@ -170,7 +171,6 @@ namespace Bank_management
             this.txt_Branch.Location = new System.Drawing.Point(163, 376);
             this.txt_Branch.Multiline = true;
             this.txt_Branch.Name = "txt_Branch";
-            this.txt_Branch.ReadOnly = true;
             this.txt_Branch.Size = new System.Drawing.Size(149, 24);
             this.txt_Branch.TabIndex = 13;
             // 
@@ -200,7 +200,7 @@ namespace Bank_management
             // btn_Submit
             // 
             this.btn_Submit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Submit.Location = new System.Drawing.Point(548, 376);
+            this.btn_Submit.Location = new System.Drawing.Point(548, 428);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(123, 42);
             this.btn_Submit.TabIndex = 16;
@@ -211,7 +211,7 @@ namespace Bank_management
             // btn_Clear
             // 
             this.btn_Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Clear.Location = new System.Drawing.Point(714, 375);
+            this.btn_Clear.Location = new System.Drawing.Point(714, 428);
             this.btn_Clear.Name = "btn_Clear";
             this.btn_Clear.Size = new System.Drawing.Size(123, 42);
             this.btn_Clear.TabIndex = 17;
@@ -219,11 +219,32 @@ namespace Bank_management
             this.btn_Clear.UseVisualStyleBackColor = true;
             this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
+            // label_userId
+            // 
+            this.label_userId.AutoSize = true;
+            this.label_userId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_userId.Location = new System.Drawing.Point(543, 355);
+            this.label_userId.Name = "label_userId";
+            this.label_userId.Size = new System.Drawing.Size(103, 25);
+            this.label_userId.TabIndex = 18;
+            this.label_userId.Text = "User ID : ";
+            // 
+            // txt_userId
+            // 
+            this.txt_userId.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txt_userId.Location = new System.Drawing.Point(671, 355);
+            this.txt_userId.Multiline = true;
+            this.txt_userId.Name = "txt_userId";
+            this.txt_userId.Size = new System.Drawing.Size(149, 24);
+            this.txt_userId.TabIndex = 19;
+            // 
             // CustomerRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(849, 514);
+            this.Controls.Add(this.txt_userId);
+            this.Controls.Add(this.label_userId);
             this.Controls.Add(this.btn_Clear);
             this.Controls.Add(this.btn_Submit);
             this.Controls.Add(this.label_Title);
@@ -269,5 +290,7 @@ namespace Bank_management
         private System.Windows.Forms.Label label_Title;
         private System.Windows.Forms.Button btn_Submit;
         private System.Windows.Forms.Button btn_Clear;
+        private System.Windows.Forms.Label label_userId;
+        private System.Windows.Forms.TextBox txt_userId;
     }
 }
