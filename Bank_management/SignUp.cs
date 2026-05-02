@@ -83,6 +83,21 @@ namespace Bank_management
 
         }
 
-        
+        private void txt_Password_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_Password.Text.Length < 5)
+            {
+
+                label_SignUp_password.Text = "Password must be 5 chartacter";
+                label_SignUp_password.ForeColor = Color.Red;
+                btn_Signup.Enabled = false;
+            }
+            else
+            {
+                label_SignUp_password.Text = "Length is perfect";
+                label_SignUp_password.ForeColor = Color.Green;
+                btn_Signup.Enabled = true;
+            }
+        }
     }
 }

@@ -37,6 +37,7 @@ namespace Bank_management
             this.btn_Signup = new System.Windows.Forms.Button();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.label_Status = new System.Windows.Forms.Label();
+            this.label_SignUp_password = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label_signUp
@@ -58,7 +59,6 @@ namespace Bank_management
             this.txt_UserId.Size = new System.Drawing.Size(123, 29);
             this.txt_UserId.TabIndex = 1;
             this.txt_UserId.Text = "Choose user ID";
-            
             this.txt_UserId.Leave += new System.EventHandler(this.txt_UserId_Leave);
             // 
             // label_userId
@@ -90,6 +90,7 @@ namespace Bank_management
             this.txt_Password.Size = new System.Drawing.Size(123, 29);
             this.txt_Password.TabIndex = 4;
             this.txt_Password.Text = "Choose Password";
+            this.txt_Password.TextChanged += new System.EventHandler(this.txt_Password_TextChanged);
             // 
             // btn_Signup
             // 
@@ -120,11 +121,20 @@ namespace Bank_management
             this.label_Status.Size = new System.Drawing.Size(0, 17);
             this.label_Status.TabIndex = 7;
             // 
+            // label_SignUp_password
+            // 
+            this.label_SignUp_password.AutoSize = true;
+            this.label_SignUp_password.Location = new System.Drawing.Point(458, 215);
+            this.label_SignUp_password.Name = "label_SignUp_password";
+            this.label_SignUp_password.Size = new System.Drawing.Size(0, 17);
+            this.label_SignUp_password.TabIndex = 8;
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label_SignUp_password);
             this.Controls.Add(this.label_Status);
             this.Controls.Add(this.btn_Clear);
             this.Controls.Add(this.btn_Signup);
@@ -151,5 +161,6 @@ namespace Bank_management
         private System.Windows.Forms.Button btn_Signup;
         private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.Label label_Status;
+        private System.Windows.Forms.Label label_SignUp_password;
     }
 }
