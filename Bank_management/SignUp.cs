@@ -38,7 +38,7 @@ namespace Bank_management
                 if (result > 0)
                 {
                     MessageBox.Show("Sign up completed");
-                    new CustomerRegister().Show();
+                    new CustomerRegister(txt_UserId.Text).Show();
                     this.Hide();
                 }
                 else

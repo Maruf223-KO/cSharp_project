@@ -237,6 +237,7 @@ namespace Bank_management
             this.txt_userId.Name = "txt_userId";
             this.txt_userId.Size = new System.Drawing.Size(149, 24);
             this.txt_userId.TabIndex = 19;
+    
             // 
             // CustomerRegister
             // 
@@ -266,6 +267,8 @@ namespace Bank_management
             this.Name = "CustomerRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomerRegister";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CustomerRegister_FormClosing);
+            this.Load += new System.EventHandler(this.CustomerRegister_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
