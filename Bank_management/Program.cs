@@ -16,7 +16,7 @@ namespace Bank_management
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignUp());
+            Application.Run(new CustomerDashboard("noton"));
         }
     }
 }

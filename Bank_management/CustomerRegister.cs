@@ -16,6 +16,10 @@ namespace Bank_management
         string connectionString = @"Data Source=DESKTOP-S9F74LP\SQLEXPRESS;Initial Catalog = Bank; Integrated Security = True";
 
         private string _UserId;
+        private string _customerId;
+
+
+        DateTime dt = DateTime.Today;
         public CustomerRegister(string passedUserID )
         {
             InitializeComponent();
@@ -34,8 +38,9 @@ namespace Bank_management
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
+            
             SqlConnection con = new SqlConnection(connectionString);
-            string insert_query ="insert into Customer values ('"+txt_CustomerId.Text+"','"+txt_Name.Text+ "','" + txt_Phone.Text + "','" + txt_Email.Text+ "','" + combox_Sex.Text + "','" + txt_Address.Text+"','"+txt_Branch.Text+"','"+txt_userId.Text+"')";
+            string insert_query ="insert into Customer values ('"+_customerId+"','"+txt_Name.Text+ "','" + txt_Phone.Text + "','" + txt_Email.Text+ "','" + combox_Sex.Text + "','" + txt_Address.Text+"','"+txt_Branch.Text+"','"+txt_userId.Text+"')";
             SqlCommand cmd = new SqlCommand(insert_query,con);
             con.Open();
             if (con.State == ConnectionState.Open)
@@ -43,7 +48,13 @@ namespace Bank_management
                 int result = cmd.ExecuteNonQuery();
                 if (result > 0)
                 {
-                    MessageBox.Show("Insertion completed");
+                    MessageBox.Show("Sucessfully submitted.Please wait for to review your information");
+                    
+                    string accountId=IdGenerator.NewAccountID(con);
+                    string insert_account_query = "insert into Account values('" + accountId + "',0,'" + dt + "',1,'" + 111 + "','" + _customerId + "')";
+                    SqlCommand cmd1 = new SqlCommand(insert_account_query, con);
+                    cmd1.ExecuteNonQuery();
+
                     btn_Clear_Click(sender,e);
                 }
                 else
@@ -61,11 +72,15 @@ namespace Bank_management
 
         private void CustomerRegister_Load(object sender, EventArgs e)
         {
+            SqlConnection con = new SqlConnection(connectionString);
+            _customerId = IdGenerator.NewCustomerID(con);
             this.txt_userId.Text = _UserId;
             this.txt_userId.ReadOnly=true;
+            this.txt_CustomerId.Text = _customerId;
+
         }
 
-        
+
 
         private void CustomerRegister_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -98,6 +113,28 @@ namespace Bank_management
             }
         }
 
-       
+        private void txt_Phone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                this.label_warphone.Text = "Must be Number";
+                this.label_warphone.ForeColor = Color.Red;
+            }
+            else
+            {
+                this.label_warphone.Text = "";
+            }
+            
+        }
+
+        private void txt_Phone_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_Phone.Text.Length < 11)
+            {
+                this.label_warphone.Text = "Must be 11 number";
+                this.label_warphone.ForeColor = Color.Red;
+            }
+        }
     }
 }

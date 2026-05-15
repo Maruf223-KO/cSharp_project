@@ -38,13 +38,15 @@ namespace Bank_management
             this.btn_Clear = new System.Windows.Forms.Button();
             this.label_Status = new System.Windows.Forms.Label();
             this.label_SignUp_password = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label_signUp
             // 
             this.label_signUp.AutoSize = true;
             this.label_signUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_signUp.Location = new System.Drawing.Point(323, 43);
+            this.label_signUp.Location = new System.Drawing.Point(337, 39);
             this.label_signUp.Name = "label_signUp";
             this.label_signUp.Size = new System.Drawing.Size(106, 29);
             this.label_signUp.TabIndex = 0;
@@ -53,19 +55,18 @@ namespace Bank_management
             // txt_UserId
             // 
             this.txt_UserId.ForeColor = System.Drawing.Color.Black;
-            this.txt_UserId.Location = new System.Drawing.Point(328, 142);
+            this.txt_UserId.Location = new System.Drawing.Point(367, 142);
             this.txt_UserId.Multiline = true;
             this.txt_UserId.Name = "txt_UserId";
-            this.txt_UserId.Size = new System.Drawing.Size(123, 29);
+            this.txt_UserId.Size = new System.Drawing.Size(175, 29);
             this.txt_UserId.TabIndex = 1;
-            this.txt_UserId.Text = "Choose user ID";
             this.txt_UserId.Leave += new System.EventHandler(this.txt_UserId_Leave);
             // 
             // label_userId
             // 
             this.label_userId.AutoSize = true;
             this.label_userId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_userId.Location = new System.Drawing.Point(191, 142);
+            this.label_userId.Location = new System.Drawing.Point(201, 142);
             this.label_userId.Name = "label_userId";
             this.label_userId.Size = new System.Drawing.Size(114, 29);
             this.label_userId.TabIndex = 2;
@@ -75,38 +76,41 @@ namespace Bank_management
             // 
             this.label_Password.AutoSize = true;
             this.label_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Password.Location = new System.Drawing.Point(191, 204);
+            this.label_Password.Location = new System.Drawing.Point(173, 215);
             this.label_Password.Name = "label_Password";
-            this.label_Password.Size = new System.Drawing.Size(128, 29);
+            this.label_Password.Size = new System.Drawing.Size(142, 29);
             this.label_Password.TabIndex = 3;
-            this.label_Password.Text = "Password";
+            this.label_Password.Text = "Password :";
             // 
             // txt_Password
             // 
             this.txt_Password.ForeColor = System.Drawing.Color.Black;
-            this.txt_Password.Location = new System.Drawing.Point(328, 204);
+            this.txt_Password.Location = new System.Drawing.Point(367, 215);
             this.txt_Password.Multiline = true;
             this.txt_Password.Name = "txt_Password";
-            this.txt_Password.Size = new System.Drawing.Size(123, 29);
+            this.txt_Password.Size = new System.Drawing.Size(175, 29);
             this.txt_Password.TabIndex = 4;
-            this.txt_Password.Text = "Choose Password";
             this.txt_Password.TextChanged += new System.EventHandler(this.txt_Password_TextChanged);
             // 
             // btn_Signup
             // 
-            this.btn_Signup.Location = new System.Drawing.Point(350, 284);
+            this.btn_Signup.BackColor = System.Drawing.Color.SpringGreen;
+            this.btn_Signup.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_Signup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btn_Signup.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Signup.Location = new System.Drawing.Point(450, 294);
             this.btn_Signup.Name = "btn_Signup";
-            this.btn_Signup.Size = new System.Drawing.Size(101, 47);
+            this.btn_Signup.Size = new System.Drawing.Size(123, 56);
             this.btn_Signup.TabIndex = 5;
             this.btn_Signup.Text = "Sign Up";
-            this.btn_Signup.UseVisualStyleBackColor = true;
+            this.btn_Signup.UseVisualStyleBackColor = false;
             this.btn_Signup.Click += new System.EventHandler(this.btn_Signup_Click);
             // 
             // btn_Clear
             // 
-            this.btn_Clear.Location = new System.Drawing.Point(204, 284);
+            this.btn_Clear.Location = new System.Drawing.Point(178, 294);
             this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(101, 47);
+            this.btn_Clear.Size = new System.Drawing.Size(123, 56);
             this.btn_Clear.TabIndex = 6;
             this.btn_Clear.Text = "Clear";
             this.btn_Clear.UseVisualStyleBackColor = true;
@@ -116,24 +120,36 @@ namespace Bank_management
             // 
             this.label_Status.AutoSize = true;
             this.label_Status.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label_Status.Location = new System.Drawing.Point(457, 152);
+            this.label_Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Status.Location = new System.Drawing.Point(548, 151);
             this.label_Status.Name = "label_Status";
-            this.label_Status.Size = new System.Drawing.Size(0, 17);
+            this.label_Status.Size = new System.Drawing.Size(0, 20);
             this.label_Status.TabIndex = 7;
             // 
             // label_SignUp_password
             // 
             this.label_SignUp_password.AutoSize = true;
-            this.label_SignUp_password.Location = new System.Drawing.Point(458, 215);
+            this.label_SignUp_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_SignUp_password.Location = new System.Drawing.Point(548, 224);
             this.label_SignUp_password.Name = "label_SignUp_password";
-            this.label_SignUp_password.Size = new System.Drawing.Size(0, 17);
+            this.label_SignUp_password.Size = new System.Drawing.Size(0, 20);
             this.label_SignUp_password.TabIndex = 8;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.Controls.Add(this.label_signUp);
+            this.panel1.Location = new System.Drawing.Point(-4, -3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(805, 105);
+            this.panel1.TabIndex = 9;
             // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label_SignUp_password);
             this.Controls.Add(this.label_Status);
             this.Controls.Add(this.btn_Clear);
@@ -142,10 +158,11 @@ namespace Bank_management
             this.Controls.Add(this.label_Password);
             this.Controls.Add(this.label_userId);
             this.Controls.Add(this.txt_UserId);
-            this.Controls.Add(this.label_signUp);
             this.Name = "SignUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SignUp";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,5 +179,6 @@ namespace Bank_management
         private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.Label label_Status;
         private System.Windows.Forms.Label label_SignUp_password;
+        private System.Windows.Forms.Panel panel1;
     }
 }

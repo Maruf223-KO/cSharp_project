@@ -88,7 +88,7 @@ namespace Bank_management
             if (txt_Password.Text.Length < 5)
             {
 
-                label_SignUp_password.Text = "Password must be 5 chartacter";
+                label_SignUp_password.Text = "Must be 5 chartacter";
                 label_SignUp_password.ForeColor = Color.Red;
                 btn_Signup.Enabled = false;
             }

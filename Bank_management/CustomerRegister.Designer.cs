@@ -48,6 +48,15 @@ namespace Bank_management
             this.btn_Clear = new System.Windows.Forms.Button();
             this.label_userId = new System.Windows.Forms.Label();
             this.txt_userId = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label_warname = new System.Windows.Forms.Label();
+            this.label_warsex = new System.Windows.Forms.Label();
+            this.label_warbranch = new System.Windows.Forms.Label();
+            this.label_warphone = new System.Windows.Forms.Label();
+            this.label_waremail = new System.Windows.Forms.Label();
+            this.label_waraddress = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // customerId
@@ -66,6 +75,7 @@ namespace Bank_management
             this.txt_CustomerId.Location = new System.Drawing.Point(163, 149);
             this.txt_CustomerId.Multiline = true;
             this.txt_CustomerId.Name = "txt_CustomerId";
+            this.txt_CustomerId.ReadOnly = true;
             this.txt_CustomerId.Size = new System.Drawing.Size(149, 24);
             this.txt_CustomerId.TabIndex = 1;
             // 
@@ -106,12 +116,14 @@ namespace Bank_management
             this.txt_Phone.Name = "txt_Phone";
             this.txt_Phone.Size = new System.Drawing.Size(149, 24);
             this.txt_Phone.TabIndex = 5;
+            this.txt_Phone.TextChanged += new System.EventHandler(this.txt_Phone_TextChanged);
+            this.txt_Phone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Phone_KeyPress);
             // 
             // label_Email
             // 
             this.label_Email.AutoSize = true;
             this.label_Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Email.Location = new System.Drawing.Point(570, 217);
+            this.label_Email.Location = new System.Drawing.Point(570, 221);
             this.label_Email.Name = "label_Email";
             this.label_Email.Size = new System.Drawing.Size(84, 25);
             this.label_Email.TabIndex = 6;
@@ -120,7 +132,7 @@ namespace Bank_management
             // txt_Email
             // 
             this.txt_Email.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txt_Email.Location = new System.Drawing.Point(671, 218);
+            this.txt_Email.Location = new System.Drawing.Point(671, 222);
             this.txt_Email.Multiline = true;
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(149, 24);
@@ -140,7 +152,7 @@ namespace Bank_management
             // 
             this.label_Address.AutoSize = true;
             this.label_Address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Address.Location = new System.Drawing.Point(543, 292);
+            this.label_Address.Location = new System.Drawing.Point(543, 300);
             this.label_Address.Name = "label_Address";
             this.label_Address.Size = new System.Drawing.Size(111, 25);
             this.label_Address.TabIndex = 10;
@@ -149,7 +161,7 @@ namespace Bank_management
             // txt_Address
             // 
             this.txt_Address.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txt_Address.Location = new System.Drawing.Point(671, 293);
+            this.txt_Address.Location = new System.Drawing.Point(671, 300);
             this.txt_Address.Multiline = true;
             this.txt_Address.Name = "txt_Address";
             this.txt_Address.Size = new System.Drawing.Size(149, 24);
@@ -191,7 +203,7 @@ namespace Bank_management
             // 
             this.label_Title.AutoSize = true;
             this.label_Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Title.Location = new System.Drawing.Point(212, 9);
+            this.label_Title.Location = new System.Drawing.Point(213, 25);
             this.label_Title.Name = "label_Title";
             this.label_Title.Size = new System.Drawing.Size(433, 44);
             this.label_Title.TabIndex = 15;
@@ -199,13 +211,14 @@ namespace Bank_management
             // 
             // btn_Submit
             // 
+            this.btn_Submit.BackColor = System.Drawing.Color.SpringGreen;
             this.btn_Submit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Submit.Location = new System.Drawing.Point(548, 428);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(123, 42);
             this.btn_Submit.TabIndex = 16;
             this.btn_Submit.Text = "Submit";
-            this.btn_Submit.UseVisualStyleBackColor = true;
+            this.btn_Submit.UseVisualStyleBackColor = false;
             this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
             // 
             // btn_Clear
@@ -223,7 +236,7 @@ namespace Bank_management
             // 
             this.label_userId.AutoSize = true;
             this.label_userId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_userId.Location = new System.Drawing.Point(543, 355);
+            this.label_userId.Location = new System.Drawing.Point(543, 376);
             this.label_userId.Name = "label_userId";
             this.label_userId.Size = new System.Drawing.Size(103, 25);
             this.label_userId.TabIndex = 18;
@@ -231,24 +244,99 @@ namespace Bank_management
             // 
             // txt_userId
             // 
-            this.txt_userId.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txt_userId.Location = new System.Drawing.Point(671, 355);
+            this.txt_userId.Cursor = System.Windows.Forms.Cursors.No;
+            this.txt_userId.Location = new System.Drawing.Point(671, 375);
             this.txt_userId.Multiline = true;
             this.txt_userId.Name = "txt_userId";
+            this.txt_userId.ReadOnly = true;
             this.txt_userId.Size = new System.Drawing.Size(149, 24);
             this.txt_userId.TabIndex = 19;
-    
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.Controls.Add(this.label_Title);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(848, 96);
+            this.panel1.TabIndex = 20;
+            // 
+            // label_warname
+            // 
+            this.label_warname.AutoSize = true;
+            this.label_warname.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label_warname.Location = new System.Drawing.Point(163, 198);
+            this.label_warname.Name = "label_warname";
+            this.label_warname.Size = new System.Drawing.Size(52, 17);
+            this.label_warname.TabIndex = 21;
+            this.label_warname.Text = "label1";
+            // 
+            // label_warsex
+            // 
+            this.label_warsex.AutoSize = true;
+            this.label_warsex.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label_warsex.Location = new System.Drawing.Point(163, 276);
+            this.label_warsex.Name = "label_warsex";
+            this.label_warsex.Size = new System.Drawing.Size(52, 17);
+            this.label_warsex.TabIndex = 22;
+            this.label_warsex.Text = "label1";
+            // 
+            // label_warbranch
+            // 
+            this.label_warbranch.AutoSize = true;
+            this.label_warbranch.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label_warbranch.Location = new System.Drawing.Point(163, 355);
+            this.label_warbranch.Name = "label_warbranch";
+            this.label_warbranch.Size = new System.Drawing.Size(52, 17);
+            this.label_warbranch.TabIndex = 23;
+            this.label_warbranch.Text = "label1";
+            // 
+            // label_warphone
+            // 
+            this.label_warphone.AutoSize = true;
+            this.label_warphone.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label_warphone.Location = new System.Drawing.Point(668, 126);
+            this.label_warphone.Name = "label_warphone";
+            this.label_warphone.Size = new System.Drawing.Size(52, 17);
+            this.label_warphone.TabIndex = 24;
+            this.label_warphone.Text = "label1";
+            // 
+            // label_waremail
+            // 
+            this.label_waremail.AutoSize = true;
+            this.label_waremail.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label_waremail.Location = new System.Drawing.Point(668, 198);
+            this.label_waremail.Name = "label_waremail";
+            this.label_waremail.Size = new System.Drawing.Size(52, 17);
+            this.label_waremail.TabIndex = 25;
+            this.label_waremail.Text = "label1";
+            // 
+            // label_waraddress
+            // 
+            this.label_waraddress.AutoSize = true;
+            this.label_waraddress.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label_waraddress.Location = new System.Drawing.Point(668, 273);
+            this.label_waraddress.Name = "label_waraddress";
+            this.label_waraddress.Size = new System.Drawing.Size(52, 17);
+            this.label_waraddress.TabIndex = 26;
+            this.label_waraddress.Text = "label1";
             // 
             // CustomerRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(849, 514);
+            this.Controls.Add(this.label_waraddress);
+            this.Controls.Add(this.label_waremail);
+            this.Controls.Add(this.label_warphone);
+            this.Controls.Add(this.label_warbranch);
+            this.Controls.Add(this.label_warsex);
+            this.Controls.Add(this.label_warname);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.txt_userId);
             this.Controls.Add(this.label_userId);
             this.Controls.Add(this.btn_Clear);
             this.Controls.Add(this.btn_Submit);
-            this.Controls.Add(this.label_Title);
             this.Controls.Add(this.combox_Sex);
             this.Controls.Add(this.txt_Branch);
             this.Controls.Add(this.label_Branch);
@@ -269,6 +357,8 @@ namespace Bank_management
             this.Text = "CustomerRegister";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CustomerRegister_FormClosing);
             this.Load += new System.EventHandler(this.CustomerRegister_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,5 +385,13 @@ namespace Bank_management
         private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.Label label_userId;
         private System.Windows.Forms.TextBox txt_userId;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label_warname;
+        private System.Windows.Forms.Label label_warsex;
+        private System.Windows.Forms.Label label_warbranch;
+        private System.Windows.Forms.Label label_warphone;
+        private System.Windows.Forms.Label label_waremail;
+        private System.Windows.Forms.Label label_waraddress;
     }
 }
